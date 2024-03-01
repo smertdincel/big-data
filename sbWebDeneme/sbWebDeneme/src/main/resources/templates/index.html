@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Emp List</title>
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        th, td {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+<h1>Employee</h1>
+<table>
+    <thead>
+    <tr>
+        <th>EMPNO</th>
+        <th>ENAME</th>
+        <th>JOB</th>
+        <th>MGR</th>
+        <th>HIREDATE</th>
+        <th>SAL</th>
+        <th>COMM</th>
+        <th>DEPTNO</th>
+        <th>DNAME</th>
+        <th>LOC</th>
+        <th>IMG</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="emp: ${joinedList}">
+        <td th:text="${emp.empno}"></td>
+        <td th:text="${emp.ename}"></td>
+        <td th:text="${emp.job}"></td>
+        <td th:text="${emp.mgr}"></td>
+        <td th:text="${emp.hiredate}"></td>
+        <td th:text="${emp.sal}"></td>
+        <td th:text="${emp.comm}"></td>
+        <td th:text="${emp.deptno}"></td>
+        <td th:text="${emp.dname}"></td>
+        <td th:text="${emp.loc}"></td>
+        <td><img style="height: 100px; aspect-ratio: 4/3" th:src="@{'http://127.0.0.1:9870/webhdfs/v1/user/hadoop/magic/images/' + ${emp.img} + '?op=OPEN'}"/></td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>
